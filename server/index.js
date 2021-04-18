@@ -4,8 +4,18 @@ const mongodb = require('./config')
 const passport = require('passport')
 const cookieSession = require("cookie-session");
 const routers = require('./routers')
+const cors = require("cors");
 
 app.use(express.json())
+
+
+app.use(
+    cors({
+        credentials: true,
+        origin: 'http://localhost:3000/',
+    })
+);
+
 
 app.use(
     cookieSession({
